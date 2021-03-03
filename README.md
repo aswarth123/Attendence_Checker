@@ -36,8 +36,8 @@ The sample execution screenShot is as follows:
 ![Screenshot](Screenshots/execution_output.png)
 First input is the attendence list file name
 Second input is the class duration
-Third input is the minimum percentage of the time that the student needs to be present to get the attendence.\n
-Teacher timestamp is the time when the teacher logged in.\n
+Third input is the minimum percentage of the time that the student needs to be present to get the attendence.<br/>
+Teacher timestamp is the time when the teacher logged in.<br/>
 The output can be seen as the student name, roll No and the total number of minutes that he spent in the meeting (0 means the student was absent). The names of all those students whose meeting time is less then the given percent of the time are printed as output.
 
 
