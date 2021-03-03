@@ -39,7 +39,7 @@ def absentees_list_generator(names,attcsv,classDur,percent_att):
     for row in att_list:
         if('-' not in row[0]):
             teacher_tstamp = row[2]
-            print(teacher_tstamp)
+            print("Teacher Timestamp: ",teacher_tstamp)
         else:
             f=0
             for i in range(0,len(names)):
@@ -57,11 +57,16 @@ def absentees_list_generator(names,attcsv,classDur,percent_att):
             name[2] += (((class_end - name[1]).seconds)//60)
 
     for name in names:
-        if(name[2]<((percent_att*classDur*60)//100)):
+        if(name[2]<((percent_att*classDur)//100)):
             print(name[0],name[2])
 
 
 if __name__ == "__main__":
     names = name_conversion("classList/names.csv")
+    print("Enter file_name.csv") 
     attcsv = input()
-    absentees_list_generator(names,attcsv,2,70)
+    print("Enter the duration of class in minutes")
+    duration = int(input())
+    print("Enter minimum attendence percentage criteria")
+    per = int(input())
+    absentees_list_generator(names,attcsv,duration,per)
