@@ -23,7 +23,7 @@ Now you have installed all the dependencies to exectue the above code.
 
 ## Inructions for executing the code
 #### STEP 1
-Place the attendence list that you downloaded from teams and place it in the attendenceLists folder.
+Place the attendence list that you downloaded from teams in the attendenceLists folder.
 #### STEP 2
 For executing the code you can either execute it using idle or using the command prompt.
 The command line instructions for Ubuntu
@@ -34,3 +34,12 @@ If you get an error saying python3 command not found then try using python or ex
 #### STEP 3
 The sample execution screenShot is as follows:
 ![Screenshot](Screenshots/execution_output.png)
+First input is the attendence list file name
+Second input is the class duration
+Third input is the minimum percentage of the time that the student needs to be present to get the attendence.
+Teacher timestamp is the time when the teacher logged in
+The output can be seen as the student name, roll No and the total number of minutes that he spent in the meeting (0 means the student was absent). The names of all those students whose meeting time is less then the given percent of the time are printed as output.
+
+
+
+
