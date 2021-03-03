@@ -19,9 +19,9 @@ After you have successfully installed pip in your system you need to execute the
 ```
   pip install -r requirements.txt
 ```
-Now you have installed all the dependencies to exectue the above code.
+Now you have installed all the dependencies to execute the above code.
 
-## Inructions for executing the code
+## Instructions for executing the code
 #### STEP 1
 Place the attendence list that you downloaded from teams in the attendenceLists folder.
 #### STEP 2
