@@ -2,7 +2,7 @@
 ## Pre-requisites
 The first step should be cloning the repo
 ```
-  git clone 
+  git clone https://github.com/aswarth123/Attendence_Checker.git
 ```
 You should have the latest version of pip installed in your system.
 For Ubuntu first execute the following command and check the version of the pip.
