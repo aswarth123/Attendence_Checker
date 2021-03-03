@@ -16,7 +16,7 @@ def name_conversion(f):
                 temp.append(row['Full Name']+'-'+'AM.EN.U4CSE1900'+row['Roll no.'])
             else:
                 temp.append(row['Full Name']+'-'+'AM.EN.U4CSE190'+row['Roll no.'])
-            temp.append(0)
+            temp.append(-1)
             temp.append(0)
             names.append(temp)
             del temp
@@ -48,15 +48,19 @@ def absentees_list_generator(names,attcsv,classDur,percent_att):
                 if(names[i][0]==row[0]):
                     f=1
                     break
-            if(f==1 and (names[i][1]==0 or names[i][1]==-1) and row[1]=="Joined"):
+            #print(row[1])
+            if(f==1 and (names[i][1]==0 or names[i][1]==-1) and (row[1]=="Joined" or row[1]=="Joined before")):
                 names[i][1] = row[2]
             elif(f==1 and row[1]=="Left"):
                 names[i][2] += (((row[2]-names[i][1]).seconds)//60)
                 names[i][1] = -1
-    class_end = teacher_tstamp+datetime.timedelta(hours = classDur)
+    class_end = teacher_tstamp+datetime.timedelta(hours = classDur/60)
+    #print(class_end)
     for name in names:
-        if(name[1]!=-1 and name[1]!=0):
+        #print(name[0],name[1])
+        if(name[1]!=-1):
             name[2] += (((class_end - name[1]).seconds)//60)
+            #print(((class_end - name[1]).seconds),name[0])
 
     for name in names:
         if(name[2]<((percent_att*classDur)//100)):
