@@ -1,6 +1,7 @@
 
 import csv
 import pandas as pd
+import datetime
 
 def name_conversion(f):
     names = []
@@ -17,18 +18,25 @@ def name_conversion(f):
     return(names)
 
 def absentees_list_generator(names,attcsv,classDur,percent_att):
-    with open("attendenceLists/"+ attcsv, 'r') as file:
+    with open("attendenceLists/"+ attcsv, 'r',encoding='utf16', errors='ignore') as file:
         csv_file = csv.DictReader(file)
         i=1
+        final_list = []
         for row in csv_file:
-            print(row)
+            temp = (row['Full Name\tUser Action\tTimestamp']+row[None][0]).split('\t')
+            date = temp.pop()
+            format = '%m/%d/%Y %H:%M:%S %p'
+            obj_date = datetime.datetime.strptime(date, format)
+            temp.append(obj_date)
+            final_list.append(temp)
     '''df = pd.read_csv("attendenceLists/"+ attcsv)
     print(df.head())'''
-
+    print(final_list)
+    
 
 if __name__ == "__main__":
-    '''names = name_conversion("classList/names.csv")
+    names = name_conversion("classList/names.csv")
     print(names[5])
-    print(names[15])'''
+    print(names[15])
     attcsv = input()
     absentees_list_generator([],attcsv,1,70)
