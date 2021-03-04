@@ -35,9 +35,9 @@ def absentees_list_generator(names,attcsv,classDur,percent_att):
             obj_date = datetime.datetime.strptime(date, format)
             temp.append(obj_date)
             att_list.append(temp)
-
+    teacher_tstamp = -1
     for row in att_list:
-        if('-' not in row[0]):
+        if('-' not in row[0] and teacher_tstamp == -1):
             teacher_tstamp = row[2]
             print()
             print("Teacher Timestamp: ",teacher_tstamp)
